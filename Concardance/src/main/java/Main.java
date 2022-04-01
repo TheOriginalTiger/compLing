@@ -14,7 +14,7 @@ public class Main {
         String pathToDict = "F:\\nlpDatasets\\dict.opcorpora.xml";
         String strPathToCorpus = "F:\\nlpDatasets\\news.txt";
         String strPathToOutput = "C:\\Users\\vvpvo\\Desktop\\nsu\\Lematizer\\output.txt";
-        String tempDebugLine = " нефть";
+        String tempDebugLine = "компания";
         int windowSize = 3;
 
 
@@ -31,7 +31,22 @@ public class Main {
             String line = reader.readLine();
 
             while (line != null) {
-                var lemmas = Utils.lemmatizeLine(Utils.tokenizeLine(line), hash);
+                var tokens = Utils.tokenizeLine(line);
+                var lemmas = Utils.lemmatizeLine(tokens, hash);
+                for (int i = 0; i < lemmas.size(); i++ )
+                {
+                    ArrayList<Lemma> elem = lemmas.get(i);
+                    if (elem == null)
+                    {
+                        String str = tokens.get(i);
+                        Lemma unknown = new Lemma();
+                        unknown.init = new Lemma.WordForm(str);
+                        dict.lemmata.add(unknown);
+                        ArrayList<Lemma> toAdd = new ArrayList<>();
+                        toAdd.add(unknown);
+                        lemmas.set(i, toAdd);
+                    }
+                }
                 textLemmas.addAll(lemmas);
 
                 line = reader.readLine();
@@ -44,7 +59,7 @@ public class Main {
         }
 
 
-        ArrayList<Integer> indices = Utils.findEntries(textLemmas,phraseLemmas);
+        ArrayList<Integer> indices = Utils.findEntries(textLemmas, phraseLemmas);
         ArrayList<Context> leftContexts = Utils.findLeftContext(textLemmas, indices, windowSize, phraseLemmas);
         ArrayList<Context> rightContexts = Utils.findRightContext(textLemmas, indices, windowSize, phraseLemmas);
 
