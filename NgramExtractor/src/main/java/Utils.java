@@ -118,9 +118,9 @@ public class Utils
         return list.pollLast().getValue();
     }
     
-    public static HashMap<Context, Integer> findAllNgrams(ArrayList<ArrayList<Lemma>> text, int N)
+    public static HashMap<Context, ArrayList<Integer>> findAllNgrams(ArrayList<ArrayList<Lemma>> text, int N)
     {
-        HashMap<Context, Integer> res = new HashMap<>();
+        HashMap<Context, ArrayList<Integer>> res = new HashMap<>();
         for(int i = 0 ; i < text.size() - N - 1; i++)
         {
             ArrayList<ArrayList<Lemma>> ngram = new ArrayList<>();
@@ -129,11 +129,13 @@ public class Utils
             Context context = new Context(ngram);
             if (res.containsKey(context))
             {
-                res.put(context, res.get(context) + 1);
+                res.get(context).add(i);
             }
             else
             {
-                res.put(context, 1);
+                ArrayList<Integer> tmp = new ArrayList<Integer>();
+                tmp.add(i);
+                res.put(context, tmp);
             }
         }
         return res;
@@ -143,7 +145,6 @@ public class Utils
         ArrayList<Context> res = new ArrayList<>();
         for (Integer ind : indices)
         {
-
             for (int i = 0 ; i < windowSize;i++)
             {
                 ArrayList<ArrayList<Lemma>> context = new ArrayList<>();
@@ -159,7 +160,7 @@ public class Utils
         }
         return res;
     }
-// a a a b b b a a a
+
     public static ArrayList<Context> findRightContext(ArrayList<ArrayList<Lemma>> text, ArrayList<Integer> indices, int windowSize, ArrayList<ArrayList<Lemma>> phrase)
     {
         ArrayList<Context> res = new ArrayList<>();
@@ -195,10 +196,10 @@ public class Utils
 
     public static Boolean isPersistant(ContextWrapper context, ArrayList<ArrayList<Lemma>> textLemmas, double threshold)
     {
-        ArrayList<Integer> indices = findEntries(textLemmas, context.context.lemmas);
-        Integer mostFrequentLeft = getMostFrequentContextEntries(findLeftContext(textLemmas,indices, 1,context.context.lemmas ));
-        Integer mostFrequentRight = getMostFrequentContextEntries(findRightContext(textLemmas,indices, 1,context.context.lemmas ));
-        return ((double) mostFrequentLeft/context.freq <= threshold && (double) mostFrequentRight/context.freq <= threshold);
+
+        Integer mostFrequentLeft = getMostFrequentContextEntries(findLeftContext(textLemmas,context.freq, 1,context.context.lemmas ));
+        Integer mostFrequentRight = getMostFrequentContextEntries(findRightContext(textLemmas,context.freq, 1,context.context.lemmas ));
+        return ((double) mostFrequentLeft/context.freq.size() <= threshold && (double) mostFrequentRight/context.freq.size() <= threshold);
     }
     // XMl parser. Was completely stolen from data storage lab
     public static Dict parseDict(String path_to_dict) throws IOException, XMLStreamException

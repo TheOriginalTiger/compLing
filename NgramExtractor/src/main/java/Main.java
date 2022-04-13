@@ -58,24 +58,29 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Looking for ngrams");
-        HashMap<Context, Integer> stats = Utils.findAllNgrams(textLemmas, windowSize);
+        HashMap<Context, ArrayList<Integer>> stats = Utils.findAllNgrams(textLemmas, windowSize);
         System.out.println("Done!");
         ArrayList<ContextWrapper> tmp = new ArrayList<>();
         for (Context key : stats.keySet())
         {
-            if (stats.get(key) > 1)
+            if (stats.get(key).size() > 1)
                 tmp.add(new ContextWrapper(key,stats.get(key)));
         }
+        System.out.println(tmp.size());
         System.out.println("Scanning for left and right max extensions");
         var res = tmp.parallelStream().filter(x->Utils.isPersistant(x, textLemmas, threshold)).collect(Collectors.toList());
         System.out.println("Done!");
+        HashMap<Context, Integer> statistics = new HashMap<>();
+        for (ContextWrapper c: res)
+            statistics.put(c.context, c.freq.size());
 
         System.out.println(res.size());
-        LinkedList<Map.Entry<Context, Integer>> list = new LinkedList<>(stats.entrySet());
+        LinkedList<Map.Entry<Context, Integer>> list = new LinkedList<>(statistics.entrySet());
         list.sort(Map.Entry.comparingByValue());
         for (int i = 0; i < 10; i++) {
             System.out.println(list.peekLast().getKey());
             System.out.println(list.pollLast().getValue());
         }
+        //47030
     }
 }
