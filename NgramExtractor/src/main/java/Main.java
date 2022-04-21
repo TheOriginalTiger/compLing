@@ -1,30 +1,25 @@
 import javax.xml.stream.XMLStreamException;
-import java.awt.*;
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class Main {
-    public static void main(String[] args) throws XMLStreamException, IOException {
+    public static void main(String[] args){
         
         String pathToDict = "F:\\nlpDatasets\\dict.opcorpora.xml";
         String strPathToCorpus = "F:\\nlpDatasets\\news.txt";
-        String strPathToOutput = "C:\\Users\\vvpvo\\Desktop\\nsu\\Lematizer\\output.txt";
         int windowSize = 5;
         double threshold = 0.9;
 
         ArrayList<ArrayList<Lemma>> textLemmas = new ArrayList<>();
         ArrayList<Pair<Integer>> textIndices = new ArrayList<>();
         int prev = 0;
-        ArrayList<ArrayList<Lemma>> phraseLemmas = null;
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(strPathToCorpus))) {
             Dict dict = Utils.parseDict(pathToDict);
             HashMap<String, ArrayList<Lemma>> hash = Utils.dictToMap(dict);
