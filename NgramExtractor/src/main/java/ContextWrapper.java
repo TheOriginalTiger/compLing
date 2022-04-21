@@ -6,6 +6,8 @@ public class ContextWrapper {
     Context context;
     ArrayList<Integer> freq;
     Integer UniqueTexts;
+    double leftPersistence;
+    double rightPersistence;
     public ContextWrapper(Context context, ArrayList<Integer> freq)
     {
         this.context = context;
@@ -30,6 +32,6 @@ public class ContextWrapper {
     @Override
     public String toString()
     {
-        return context.toString() + " textsFreq " + UniqueTexts + " corpusFreq " + freq.size();
+        return context.toString() + " texts Freq " + UniqueTexts + " corpus Freq " + freq.size() + " leftPersistence " + leftPersistence + " rightPersistence " + rightPersistence;
     }
 }

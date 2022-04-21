@@ -199,7 +199,9 @@ public class Utils
 
         Integer mostFrequentLeft = getMostFrequentContextEntries(findLeftContext(textLemmas,context.freq, 1,context.context.lemmas ));
         Integer mostFrequentRight = getMostFrequentContextEntries(findRightContext(textLemmas,context.freq, 1,context.context.lemmas ));
-        return ((double) mostFrequentLeft/context.freq.size() <= threshold && (double) mostFrequentRight/context.freq.size() <= threshold);
+        context.leftPersistence = (double) mostFrequentLeft/context.freq.size();
+        context.rightPersistence = (double) mostFrequentRight/context.freq.size();
+        return ( context.leftPersistence <= threshold &&  context.rightPersistence <= threshold);
     }
     // XMl parser. Was completely stolen from data storage lab
     public static Dict parseDict(String path_to_dict) throws IOException, XMLStreamException
