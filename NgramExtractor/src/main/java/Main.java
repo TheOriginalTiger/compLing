@@ -14,7 +14,7 @@ public class Main {
         
         String pathToDict = "F:\\nlpDatasets\\dict.opcorpora.xml";
         String strPathToCorpus = "F:\\nlpDatasets\\news.txt";
-        int windowSize = 5;
+        int windowSize = 2;
         double threshold = 0.9;
 
         ArrayList<ArrayList<Lemma>> textLemmas = new ArrayList<>();
@@ -65,6 +65,7 @@ public class Main {
         System.out.println(tmp.size());
         System.out.println("Scanning for left and right max extensions");
         List<ContextWrapper> res = tmp.parallelStream().filter(x->Utils.isPersistant(x, textLemmas, threshold)).collect(Collectors.toList());
+        System.out.println(res.size());
         res.forEach(x->x.countUnique(textIndices));
 
         System.out.println("Done!");

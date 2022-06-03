@@ -1,0 +1,216 @@
+name: дом
+synset: дом, здание, дом родной
+hyperonims: здание
+hyponims:
+name: Здание
+synset: здание, постройка, сооружение
+hyperonims:
+hyponims: дом, аэропорт, завод
+name: аэропорт
+synset: аэропорт, международный аэропорт
+hyperonims: Здание
+hyponims:
+name: завод
+synset: завод
+hyperonims: Здание
+hyponims:
+name: Газпром
+synset: газпром
+hyperonims: компания
+hyponims:
+name: Ютейр
+synset: Ютейр
+hyperonims: компания
+hyponims:
+name: компания
+synset: компания
+hyperonims: организация
+hyponims: Газпром, Ютейр
+name: организация
+synset: организация
+hyperonims:
+hyponims: компания
+name: ископаемое
+synset: ископаемое, природный ресурс
+hyperonims:
+hyponims: уголь, нефть, газ
+name: уголь
+synset: уголь
+hyperonims: ископаемое
+hyponims:
+name: нефть
+synset: нефть, черное золото
+hyperonims: ископаемое
+hyponims:
+name: газ
+synset: газ, природный газ, сжиженный газ
+hyperonims: ископаемое
+hyponims:
+name: золото
+synset: золото
+hyperonims: ископаемое
+hyponims:
+name: государство
+synset: государство
+hyperonims:
+hyponims: госдума, правительство
+name: госдума
+synset: госдума, государственная дума
+hyperonims: государство
+hyponims:
+name: правительство
+synset: правительство, правительство рф, правительство россии
+hyperonims: государство
+hyponims:
+name: должность
+synset: должность, позиция
+hyperonims:
+hyponims: директор, министр, президент, сенатор
+name: директор
+synset: директор
+hyperonims: должность
+hyponims:
+name: министр
+synset: министр
+hyperonims: должность
+hyponims: премьер, министрЭкономРазвития
+name: президент
+synset: президент
+hyperonims: должность
+hyponims:
+name: сенатор
+synset: сенатор
+hyperonims: должность
+hyponims:
+name: премьер
+synset: премьер-министр, премьер министр, премьерминистр
+hyperonims: министр
+hyponims:
+name: министрЭкономРазвития
+synset: министрЭкономРазвития, министр экономического развития
+hyperonims: министр
+hyponims:
+name: страна
+synset: страна
+hyperonims:
+hyponims: Россия, Украина, Турция, США
+name: Россия
+synset: россия, российский
+hyperonims: страна
+hyponims:
+name: Украина
+synset: украина
+hyperonims: страна
+hyponims:
+name: Турция
+synset: турция
+hyperonims: страна
+hyponims:
+name: США
+synset: сша, америка, штаты
+hyperonims: страна
+hyponims:
+name: продать
+synset: продать, продаст, продал
+hyperonims:
+hyponims:
+name: купить
+synset: купить, купит, купил
+hyperonims:
+hyponims:
+name: валюта
+synset: валюта
+hyperonims:
+hyponims: рубль, доллар, юань, фунт, евро
+name: рубль
+synset: рубль, российский рубль, российская валюта
+hyperonims: валюта
+hyponims:
+name: доллар
+synset: доллар, доллар сша
+hyperonims: валюта
+hyponims:
+name: юань
+synset: юань
+hyperonims: валюта
+hyponims:
+name: фунт
+synset: фунт, фунт стерлинга
+hyperonims: валюта
+hyponims:
+name: евро
+synset: евро
+hyperonims: валюта
+hyponims:
+name: сделка
+synset: сделка
+hyperonims:
+hyponims:
+name: покупка
+synset: покупка, купля
+hyperonims:
+hyponims:
+name: кредит
+synset: кредит, заем
+hyperonims:
+hyponims: лизинг
+name: лизинг
+synset: лизинг
+hyperonims: кредит
+hyponims:
+name: стоимость
+synset: стоимость, цена
+hyperonims:
+hyponims:
+name: транспорт
+synset: транспорт, траспортный
+hyperonims:
+hyponims: самолет, машина, поезд, корабль
+name: самолет
+synset: самолет, воздушное судно
+hyperonims: транспорт
+hyponims:
+name: машина
+synset: машина, автомобиль
+hyperonims: транспорт
+hyponims:
+name: поезд
+synset: поезд
+hyperonims: транспорт
+hyponims:
+name: корабль
+synset: корабль, судно
+hyperonims: транспорт
+hyponims:
+name: добыча
+synset: добыча, добывать, добудут
+hyperonims: транспорт
+hyponims:
+name: ввести
+synset: ввести
+hyperonims:
+hyponims:
+name: документ
+synset: документ
+hyperonims:
+hyponims: приказ, соглашение, закон
+name: приказ
+synset: приказ, указ
+hyperonims: документ
+hyponims:
+name: соглашение
+synset: соглашение, договор
+hyperonims: документ
+hyponims:
+name: закон
+synset: закон, постановление
+hyperonims: документ
+hyponims:
+name: поставка
+synset: поставка
+hyperonims:
+hyponims:
+name: поставить
+synset: поставлять, поставить, поставит
+hyperonims:
+hyponims:
